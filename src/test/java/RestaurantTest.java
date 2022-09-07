@@ -7,6 +7,8 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalTime;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -85,4 +87,15 @@ class RestaurantTest {
 
         Mockito.verify(spiedRestaurant,Mockito.times(1)).displayDetails();
     }
+
+    //<<<<<<<<<<<<<<<<<<TOTAL ORDER VALUE>>>>>>>>>>>>>>>>>>
+    @Test
+    public void order_value_should_be_380_when_SweetCornSoup_and_Vegetable_lasagne_are_ordered() {
+        List<String> orderedItemNames = Arrays.asList("Sweet corn soup", "Vegetable lasagne");
+
+        int total = restaurant.getTotalOrder(orderedItemNames);
+
+        assertEquals(total,388);
+    }
+
 }
